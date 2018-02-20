@@ -149,8 +149,8 @@ Guillaume \textsc{Jorandon}
   %   \addlogo[south west]{(2,0)}{6cm}{unibz_w.png}
   % }
 
-  \addlogo[north west]{(-14,-\blocktitleheight)}{12cm}{logo_utc}
-  \addlogo[north east]{(12,-\blocktitleheight+1)}{10cm}{logo_cea}
+  \addlogo[north west]{(-14,-\blocktitleheight-2)}{12cm}{logo_utc}
+  \addlogo[north east]{(12,-\blocktitleheight-1)}{10cm}{logo_cea}
 
   %% a block node, with the specified position (optional), title and the content
   %% #1 - where (optional), #2 - title, #3 - text
@@ -159,7 +159,7 @@ Guillaume \textsc{Jorandon}
   		{Contexte du stage}
 		{\begin{tikzfigure}\includegraphics[height=6cm]{logo_cea}\end{tikzfigure}
 		\begin{itemize}
-				\item Le CEA, un organisme \textbf{public} de recherche \textbf{scientifique}.
+				\item Le CEA, un organisme \textbf{public} de recherche \textbf{scientifique}. 
 		\begin{tikzfigure}\includegraphics[height=16cm]{svom}\end{tikzfigure}
 		\item SVOM, un projet franco-chinois de satellite de détection et d'étude des \textbf{sursauts gamma}.
 		\end{itemize}}
@@ -177,63 +177,42 @@ Guillaume \textsc{Jorandon}
   %% box is the alias of the previous block, so we can refer to its boundaries
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-		\blocknode[($(currentrow)-(xshift)-(yshift)$)]{Making Title}%
-  {To make title, use the standard commands \textbackslash title and
-    \textbackslash author in the preamble, and then the following macro:
-    \begin{itemize}
-    \item[] \textbackslash titleblock\{50\}\{1.5\}
-    \end{itemize}
-    Macro \textbackslash titleblock has three parameters. The first one is
-    optional and it specifies the shift of the title block w.r.t.\ its default
-    position, which is set to (\$0.5*(0,\textbackslash
-    paperheight)-(0,\textbackslash margin)\$). The second parameter is the width
-    of the title block, and the third parameter is the scaling ratio (to make
-    the title bigger or smaller).\\
+  \blocknode[($(currentrow)-(xshift)-(yshift)$)]{Objectif du stage}%
+  {
+		  \begin{tikzfigure}\includegraphics[height=6cm]{logo_eclairs}\end{tikzfigure}
+		  \begin{itemize}
+				  \item Mettre en place une plateforme d'\textbf{intégration continue} pour le développement des logiciels embarqués de l'instrument français ECLAIRs.
+				  \item Pourquoi ? Parce que le développement d'un logiciel de vol pour l'aérospatiale est une tâche extrêmement critique, et qu'un bogue peut avoir des conséquences irrémédiables pour la mission (exemple : \textbf{vol 501 d'Ariane V} en 1996).
+		  \end{itemize}
+  }
+  
+  \plainblock[5]{($(currenty)+(4,2)$)}{35}{Intégration continue} %
+  {
+		  Ensemble de pratiques et méthodes en génie logiciel utilisées pour contrôler la qualité d'un projet tout au long de son développement. Une plateforme d'intégration continue automatise des étapes comme la compilation et l'exécution des tests, et présente les résultats au développeur dans des tableaux et graphiques.
+  }
+  \getcurrentrow{note}
 
-    \small
-    The syntax for specifying authors is similar to the one in aaai.sty.  Author
-    information can be set in various styles: For several authors from the same
-    institution:
-    \begin{itemize}\item[] 
-      \textbackslash author\{Author 1 \textbackslash and ... \textbackslash and
-      Author n \textbackslash\textbackslash\\ 
-      Address line \textbackslash\textbackslash \
-      ... \textbackslash\textbackslash \ Address line\}
-    \end{itemize}
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  \blocknode[($(0,-1)+(currentrow)-(xshift)-(yshift)$)]{TODO}%
+  {
+		  \begin{itemize}
+				  \item 1
+				  \item 2
+		  \end{itemize}
+  }
 
-    If the names do not fit well on one line use
-    \begin{itemize}\item[] 
-      \textbackslash author\{Author 1 \textbackslash\textbackslash \
-      \{\textbackslash bf Author 2\} \textbackslash\textbackslash \
-      ... \textbackslash\textbackslash \
-      \{\textbackslash bf Author n\} \textbackslash\textbackslash\\
-      Address line \textbackslash\textbackslash \
-      ... \textbackslash\textbackslash \ Address line\}
-    \end{itemize}
+  %%%%%%%%%%%%% NEW COLUMN %%%%%%%%%%%%%%% 
+  \startsecondcolumn 
 
-    For authors from different institutions: 
-    \begin{itemize}\item[] 
-      \textbackslash author\{Author 1 \textbackslash\textbackslash \ Address
-      line \textbackslash\textbackslash \ ... \textbackslash\textbackslash \
-      Address line \\ \textbackslash And ... \textbackslash And \\
-      Author n \textbackslash\textbackslash \ Address line
-      \textbackslash\textbackslash \ ... \textbackslash\textbackslash \ Address
-      line\}
-    \end{itemize}
-    
-    To start a separate ``row'' of authors use \textbackslash AND, as in
-    \begin{itemize}\item[] 
-      \textbackslash author\{Author 1 \textbackslash\textbackslash \ Address line
-      \textbackslash\textbackslash \ ... \textbackslash\textbackslash \ Address
-      line \textbackslash AND\\ Author 2 \textbackslash\textbackslash \ Address line
-      \textbackslash\textbackslash \ ... \textbackslash\textbackslash \ Address
-      line \textbackslash And\\ Author 3 \textbackslash\textbackslash \ Address line
-      \textbackslash\textbackslash \ ... \textbackslash\textbackslash \ Address
-      line\}
-    \end{itemize}
-    (though, I must say \textbackslash and ... \textbackslash and did not work for
-    me with more than 2 authors, so just use commas where you need if it does
-    not work for you either).
+  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
+  \blocknode%
+  {Conclusion}%
+  {
+		  \begin{itemize}
+				  \item Une approche concrète du génie informatique appliqué à un projet de recherche.
+				  \item Réutilisation possible et probable de la plateforme pour le développement des logiciels de contrôle au sol du satellite.
+				  \item Décollage prévu en 2021 depuis la Chine dans un lanceur Longue Marche 2C.
+		  \end{itemize}
   }
 
 \end{tikzpicture}
