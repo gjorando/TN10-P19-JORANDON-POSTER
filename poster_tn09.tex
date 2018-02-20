@@ -14,7 +14,7 @@
 %%%%% --------- Change here if you want ---------- %%%%%
 %% margin for the geometry package, must be changed before using the geometry package
 %% default value is 4cm
-\setmargin{2.5}
+\setmargin{2}
 
 %% the space between the blocks
 %% default value is 2cm
@@ -159,7 +159,7 @@ Guillaume \textsc{Jorandon}
   		{Contexte du stage}
 		{\begin{tikzfigure}\includegraphics[height=6cm]{logo_cea}\end{tikzfigure}
 		\begin{itemize}
-				\item Le CEA, un organisme \textbf{public} de recherche \textbf{scientifique}. 
+				\item Le CEA, un organisme \textbf{public} de recherche \textbf{scientifique}. Il travaille notamment autour de l'énergie nucléaire, des sciences fondamentales et de la recherche industrielle.
 		\begin{tikzfigure}\includegraphics[height=16cm]{svom}\end{tikzfigure}
 		\item SVOM, un projet franco-chinois de satellite de détection et d'étude des \textbf{sursauts gamma}.
 		\end{itemize}}
@@ -181,25 +181,18 @@ Guillaume \textsc{Jorandon}
   {
 		  \begin{tikzfigure}\includegraphics[height=6cm]{logo_eclairs}\end{tikzfigure}
 		  \begin{itemize}
-				  \item Mettre en place une plateforme d'\textbf{intégration continue} pour le développement des logiciels embarqués de l'instrument français ECLAIRs.
-				  \item Pourquoi ? Parce que le développement d'un logiciel de vol pour l'aérospatiale est une tâche extrêmement critique, et qu'un bogue peut avoir des conséquences irrémédiables pour la mission (exemple : \textbf{vol 501 d'Ariane V} en 1996).
+				  \item Quoi ? Mettre en place une plateforme d'\textbf{intégration continue} pour le développement des logiciels embarqués de l'instrument français ECLAIRs.
+				  \item Pourquoi ? Parce que le développement d'un logiciel de vol pour l'astronautique est une tâche extrêmement critique, et qu'un bogue peut avoir des conséquences irrémédiables pour la mission (exemple : \textbf{vol 501 d'Ariane V} en 1996 qui s'est soldé par la destruction de la fusée, heureusement inhabitée).
+		  \begin{tikzfigure}\includegraphics[height=6cm]{logo_jenkins}\end{tikzfigure}
+				  \item Comment ? Avec \textbf{Jenkins}, un logiciel d'intégration continue très modulaire écrit en Java.
 		  \end{itemize}
   }
   
-  \plainblock[5]{($(currenty)+(4,2)$)}{35}{Intégration continue} %
+  \plainblock[5]{($(currenty)+(0,3)$)}{35}{Intégration continue} %
   {
 		  Ensemble de pratiques et méthodes en génie logiciel utilisées pour contrôler la qualité d'un projet tout au long de son développement. Une plateforme d'intégration continue automatise des étapes comme la compilation et l'exécution des tests, et présente les résultats au développeur dans des tableaux et graphiques.
   }
   \getcurrentrow{note}
-
-  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode[($(0,-1)+(currentrow)-(xshift)-(yshift)$)]{TODO}%
-  {
-		  \begin{itemize}
-				  \item 1
-				  \item 2
-		  \end{itemize}
-  }
 
   %%%%%%%%%%%%% NEW COLUMN %%%%%%%%%%%%%%% 
   \startsecondcolumn 
@@ -209,20 +202,29 @@ Guillaume \textsc{Jorandon}
   {Architecture globale}%
   {
 		  \begin{itemize}
-				  \item Une approche concrète du génie informatique appliqué à un projet de recherche.
-				  \item Réutilisation possible et probable de la plateforme pour le développement des logiciels de contrôle au sol du satellite.
-				  \item Décollage prévu en 2021 depuis la Chine dans un lanceur Longue Marche 2C.
+						 \item Utilisation de GitLab pour versionner le code.
+						 \item Système Jenkins de \textit{pipelines} pour définir une suite d'opérations séquentielles ou parallèles à faire effectuer par la plateforme.
 		  \end{itemize}
+		  \begin{tikzfigure}\includegraphics[width=\textwidth]{schema}\end{tikzfigure}
+		  \begin{enumerate}
+	\item Le développeur publie du code sur GitLab depuis sa machine de travail.
+	\item GitLab notifie la plateforme d'une mise à jour.
+	\item Jenkins déclenche un \textit{build} pour le \textit{job} concerné.
+	\item Jenkins va récupérer la dernière version publiée du code source du projet, et exécute le \textit{pipeline}.
+	\item Une fois l'exécution terminée, le développeur est notifié par e-mail. Il peut accéder à l'interface web de Jenkins pour avoir un retour sur le \textit{build}.
+		  \end{enumerate}
   }
 
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \blocknode%
-  {Fonctionnalités}%
+  {Fonctionnalités automatisées}%
   {
 		  \begin{itemize}
-				  \item Une approche concrète du génie informatique appliqué à un projet de recherche.
-				  \item Réutilisation possible et probable de la plateforme pour le développement des logiciels de contrôle au sol du satellite.
-				  \item Décollage prévu en 2021 depuis la Chine dans un lanceur Longue Marche 2C.
+				  \item Compilation native sous Linux, compilation croisée pour la plateforme embarquée.
+				  \item Tests unitaires, tests de couverture.
+				  \item Analyse statique et contrôle des standards de codage.
+				  \item Émission de rapports de métriques sous forme de graphiques.
+				  \item Archivage des produits de la compilation.
 		  \end{itemize}
   }
 
