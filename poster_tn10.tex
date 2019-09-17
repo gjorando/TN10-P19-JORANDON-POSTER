@@ -20,9 +20,9 @@
 \graphicspath{{img/}} % Specifies the directory where pictures are stored
  
 % Title
-\title{{\fontsize{60pt}{60pt}\selectfont Métriques de représentativité pour le balancement de corpus}}
+\title{{\fontsize{60pt}{60pt}\selectfont Representativity metrics for corpus balancing}}
 \author{TN10 — Guillaume \textsc{Jorandon}}
-\institute{Thales Canada — Thales Recherche et Technologie Québec}
+\institute{Thales Canada — Thales Research and Technology}
  
 \defineblockstyle{invisible_block}{}{
   \begin{scope}[]
@@ -41,22 +41,38 @@
 \node[anchor=west] at (TP@title.west) {\includegraphics[width=8cm]{logo_utc}};
 \node[anchor=east] at (TP@title.east) {\includegraphics[width=8cm]{logo_thales}};
 
-\block{{\fontsize{60pt}{60pt}\selectfont Objectifs du stage}}
-{
-{\fontsize{50pt}{50pt}\selectfont
+\begin{columns}
+
+\column{0.5}
+
+\block{{\fontsize{60pt}{60pt}\selectfont Mission goals}}
+{{\fontsize{50pt}{50pt}\selectfont
 \begin{itemize}
-    \item Choisir des métriques sensibles au débalancement selon le problème étudié
-    \item Comparer les différentes méthodes de gestion du débalancement
-    \item Étudier la question de la représentativité intra-classe non supervisée
+    \item Pick the appropriate metrics, sensible to class imbalance, with respect to the studied problem
+    \item Compare the existing rebalancing methods
+    \item Study the --not much studied-- issue of within-class representativeness 
 \end{itemize}
-}
-}
+}}
+
+\column{0.5}
+
+\block{{\fontsize{60pt}{60pt}\selectfont Work}}
+{{\fontsize{50pt}{50pt}\selectfont
+\begin{itemize}
+    \item A Python library that integrates various methods and metrics to tackle class imbalance
+    \item Comparative review of performance metrics and resampling methods
+    \item Experiments on within-class domain coverage with unsupervised clustering and dissimilarity metrics
+\end{itemize}
+}}
+
+\end{columns}
+
 
 {
 \useblockstyle{invisible_block}
 \block{}
 {\centering
-\includegraphics[width=18cm]{logo_utc}
+\includegraphics[width=0.9\textwidth]{schema}
 }
 }
  
