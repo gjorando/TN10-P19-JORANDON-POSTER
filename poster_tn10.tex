@@ -1,0 +1,63 @@
+\documentclass[24pt, a0paper, portrait]{tikzposter}
+\usepackage[utf8]{inputenc}
+ 
+% Theme
+\usetheme{Rays}
+ 
+% Colors
+\definecolor{colorone}{HTML}{94b3c5}
+\definecolor{colortwo}{HTML}{242a75}
+\definecolor{colorthree}{HTML}{444444}
+\usecolorstyle[colorOne=colorone, colorTwo=colortwo, colorThree=colorthree]{Sweden}
+ 
+% Fonts
+\usepackage{avant}
+\usepackage[math]{kurier}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+ 
+% Configuration
+\graphicspath{{img/}} % Specifies the directory where pictures are stored
+ 
+% Title
+\title{{\fontsize{60pt}{60pt}\selectfont Métriques de représentativité pour le balancement de corpus}}
+\author{TN10 — Guillaume \textsc{Jorandon}}
+\institute{Thales Canada — Thales Recherche et Technologie Québec}
+ 
+\defineblockstyle{invisible_block}{}{
+  \begin{scope}[]
+    \ifBlockHasTitle %
+      \draw[opacity=0] (blocktitle.south west) rectangle (blocktitle.north east);
+      \draw[opacity=0] (blockbody.south west) rectangle (blockbody.north east);
+    \else
+      \draw[opacity=0] (blockbody.south west) rectangle (blockbody.north east);
+    \fi
+  \end{scope}
+}
+ 
+\begin{document}
+ 
+\maketitle
+\node[anchor=west] at (TP@title.west) {\includegraphics[width=8cm]{logo_utc}};
+\node[anchor=east] at (TP@title.east) {\includegraphics[width=8cm]{logo_thales}};
+
+\block{{\fontsize{60pt}{60pt}\selectfont Objectifs du stage}}
+{
+{\fontsize{50pt}{50pt}\selectfont
+\begin{itemize}
+    \item Choisir des métriques sensibles au débalancement selon le problème étudié
+    \item Comparer les différentes méthodes de gestion du débalancement
+    \item Étudier la question de la représentativité intra-classe non supervisée
+\end{itemize}
+}
+}
+
+{
+\useblockstyle{invisible_block}
+\block{}
+{\centering
+\includegraphics[width=18cm]{logo_utc}
+}
+}
+ 
+\end{document}

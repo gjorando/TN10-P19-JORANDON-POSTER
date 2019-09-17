@@ -26,7 +26,7 @@
 
 %% the number of columns in the poster, possible values 2,3
 %% default value is 2
-% \setcolumnnumber{3}
+\setcolumnnumber{1}
 
 %% the space between two or more groups of authors from different institutions
 %% used in \maketitle
@@ -39,7 +39,7 @@
 %% N4 envelope-like look
 %% N5 with a wave-like head, original idea taken from
 %%%% http://fc09.deviantart.net/fs71/f/2010/322/1/1/scientific_poster_by_nabuy-d333ria.jpg
-%\usetemplate{5}
+\usetemplate{1}
 
 %% components of the templates
 %% (the maximal possible numbers are mentioned as the parameters)
@@ -111,10 +111,10 @@
 \graphicspath{{img/}} % Specifies the directory where pictures are stored
 
 
-\title{{\fontsize{72pt}{72pt}\selectfont Mise en \oe{}uvre d'une plateforme d'intégration continue pour un logiciel spatial}\\
-  {\fontsize{52pt}{52pt}\selectfont TN09}
+\title{{\fontsize{72pt}{72pt}\selectfont Métriques de représentativité pour le balancement de corpus}\\
+  {\fontsize{52pt}{52pt}\selectfont TN10}
 }
-\author{{\fontsize{30pt}{30pt}\selectfont Centre CEA de Paris-Saclay — Institut de recherche sur les lois fondamentales de l'univers}\\
+\author{{\fontsize{40pt}{40pt}\selectfont Thales Canada — Thales Recherche et Technologie Québec}\\
 Guillaume \textsc{Jorandon}
 }
 
@@ -131,7 +131,6 @@ Guillaume \textsc{Jorandon}
   \initializesizeandshifts
   % \setxshift{15}
   % \setyshift{2}
-
 
   %% the title block, #1 - shift, the default value is (0,0), #2 - width, #3 - scale
   %% the alias of the title block is `title', so we can refer to its boundaries later
@@ -150,14 +149,16 @@ Guillaume \textsc{Jorandon}
   % }
 
   \addlogo[north west]{(-14,-\blocktitleheight-2)}{12cm}{logo_utc}
-  \addlogo[north east]{(12,-\blocktitleheight-1)}{10cm}{logo_cea}
+  \addlogo[north east]{(15,-\blocktitleheight-4)}{13cm}{logo_thales}
+
+  \startsecondcolumn
 
   %% a block node, with the specified position (optional), title and the content
   %% #1 - where (optional), #2 - title, #3 - text
   %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
   \blocknode%
   		{Contexte du stage}
-		{\begin{tikzfigure}\includegraphics[height=6cm]{logo_cea}\end{tikzfigure}
+		{
 		\begin{itemize}
 				\item Le CEA, un organisme \textbf{public} de recherche \textbf{scientifique}. Il travaille notamment autour de l'énergie nucléaire, des sciences fondamentales et de la recherche industrielle.
 		\begin{tikzfigure}\includegraphics[height=16cm]{svom}\end{tikzfigure}
@@ -171,6 +172,8 @@ Guillaume \textsc{Jorandon}
 		  Émission brève et intense de rayons gamma en provenance de l'espace. Ils résultent d'évènements très violents comme l'effondrement d'étoiles en fin de vie, ou la fusion d'étoiles à neutron.
   }
   \getcurrentrow{note}
+  
+  \startsecondcolumn
   
   %% by default, the position of the new block node is right below the previous
   %% block node, stored in (currenty)
@@ -193,51 +196,6 @@ Guillaume \textsc{Jorandon}
 		  Ensemble de pratiques et méthodes en génie logiciel utilisées pour contrôler la qualité d'un projet tout au long de son développement. Une plateforme d'intégration continue automatise des étapes comme la compilation et l'exécution des tests, et présente les résultats au développeur dans des tableaux et graphiques.
   }
   \getcurrentrow{note}
-
-  %%%%%%%%%%%%% NEW COLUMN %%%%%%%%%%%%%%% 
-  \startsecondcolumn 
-
-  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode%
-  {Architecture globale}%
-  {
-		  \begin{itemize}
-						 \item Utilisation de GitLab pour versionner le code.
-						 \item Système Jenkins de \textit{pipelines} pour définir une suite d'opérations séquentielles ou parallèles à faire effectuer par la plateforme.
-		  \end{itemize}
-		  \begin{tikzfigure}\includegraphics[width=\textwidth]{schema}\end{tikzfigure}
-		  \begin{enumerate}
-	\item Le développeur publie du code sur GitLab depuis sa machine de travail.
-	\item GitLab notifie la plateforme d'une mise à jour.
-	\item Jenkins déclenche un \textit{build} pour le \textit{job} concerné.
-	\item Jenkins va récupérer la dernière version publiée du code source du projet, et exécute le \textit{pipeline}.
-	\item Une fois l'exécution terminée, le développeur est notifié par e-mail. Il peut accéder à l'interface web de Jenkins pour avoir un retour sur le \textit{build}.
-		  \end{enumerate}
-  }
-
-  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode%
-  {Fonctionnalités automatisées}%
-  {
-		  \begin{itemize}
-				  \item Compilation native sous Linux, compilation croisée pour la plateforme embarquée.
-				  \item Tests unitaires, tests de couverture.
-				  \item Analyse statique et contrôle des standards de codage.
-				  \item Émission de rapports de métriques sous forme de graphiques.
-				  \item Archivage des produits de la compilation.
-		  \end{itemize}
-  }
-
-  %%%%%%%%%% ------------------------------------------ %%%%%%%%%%
-  \blocknode%
-  {Conclusion}%
-  {
-		  \begin{itemize}
-				  \item Une approche concrète du génie informatique appliqué à un projet de recherche.
-				  \item Réutilisation possible et probable de la plateforme pour le développement des logiciels de contrôle au sol du satellite.
-				  \item Décollage prévu en 2021 depuis la Chine dans un lanceur Longue Marche 2C.
-		  \end{itemize}
-  }
 
 \end{tikzpicture}
 
