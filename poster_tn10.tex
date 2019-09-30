@@ -1,5 +1,4 @@
 \documentclass[24pt, a0paper, portrait]{tikzposter}
-\usepackage[utf8]{inputenc}
  
 % Theme
 \usetheme{Rays}
@@ -8,6 +7,7 @@
 \definecolor{colorone}{HTML}{94b3c5}
 \definecolor{colortwo}{HTML}{242a75}
 \definecolor{colorthree}{HTML}{444444}
+\definecolor{red}{HTML}{FF0000}
 \usecolorstyle[colorOne=colorone, colorTwo=colortwo, colorThree=colorthree]{Sweden}
  
 % Fonts
@@ -15,6 +15,7 @@
 \usepackage[math]{kurier}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{xcolor}
  
 % Configuration
 \graphicspath{{img/}} % Specifies the directory where pictures are stored
@@ -36,7 +37,7 @@
 }
  
 \begin{document}
- 
+
 \maketitle
 \node[anchor=west] at (TP@title.west) {\includegraphics[width=8cm]{logo_utc}};
 \node[anchor=east] at (TP@title.east) {\includegraphics[width=8cm]{logo_thales}};
@@ -72,7 +73,9 @@
 \useblockstyle{invisible_block}
 \block{}
 {\centering
-\includegraphics[width=0.9\textwidth]{schema}
+\includegraphics[width=0.9\textwidth]{schema}\\
+\vspace{2em}
+\textcolor{red}{{\fontsize{60pt}{60pt}\selectfont CONFIDENTIAL -- Do not distribute without Thales' permission}}
 }
 }
  
